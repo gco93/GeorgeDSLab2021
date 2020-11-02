@@ -22,6 +22,7 @@ public class GeorgeDT2021 {
             return true;
         }
     public static void main(String[] args) {
+        System.out.println("a b  ");
         int[]a = new int[10];
         int[]b = new int[10];
         for (int j=1,k=9 ;j<10; j++,k--)
@@ -32,8 +33,8 @@ public class GeorgeDT2021 {
         }
         
         //System.out.println("" + a.length + " " + b.length) ;
-        System.out.println("" + isAscending(a)) ;
-        System.out.println("" + isAscending(b)) ;
+        System.out.println("Array a is " + isAscending(a)) ;
+        System.out.println("Array b is " + isAscending(b)) ;
             
     }
 
