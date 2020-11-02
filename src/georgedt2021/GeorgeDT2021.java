@@ -11,11 +11,30 @@ package georgedt2021;
  */
 public class GeorgeDT2021 {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static boolean isAscending (int[] x )
+        {
+            for( int i=1; i<x.length-1; i++)
+            {
+                if(x[i]>x[i+1])
+                    return false;
+            }
+            
+            return true;
+        }
     public static void main(String[] args) {
-        // TODO code application logic here
+        int[]a = new int[10];
+        int[]b = new int[10];
+        for (int j=1,k=9 ;j<10; j++,k--)
+        {
+            b[j]=k;
+            a[j]=j;
+            System.out.println("" + a[j] + " " + b[j]);
+        }
+        
+        //System.out.println("" + a.length + " " + b.length) ;
+        System.out.println("" + isAscending(a)) ;
+        System.out.println("" + isAscending(b)) ;
+            
     }
-    
+
 }
