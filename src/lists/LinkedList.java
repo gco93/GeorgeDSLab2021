@@ -143,6 +143,19 @@ public class LinkedList implements ListInterface {
     }
 
     //TODO: homework remove element from back
+    
+    public void removelast()
+    {
+        if(isEmpty())
+            throw new RuntimeException("list is empty!");
+        Node del = this.head;
+        for(int i=0;del != this.getTailNode();i++)
+        {
+            del.getNext();
+        }
+        del.setNext(null);
+    }
+    
     @Override
     public void remove() {
         if(isEmpty())
@@ -156,18 +169,33 @@ public class LinkedList implements ListInterface {
     public Object remove(int index) {
         if(isEmpty())
             throw new RuntimeException("list is empty");
+        if(this.size() == 1)
+        {
+            Node del = this.head;
+            this.makeEmpty();
+            return del;
+        }
+        else
+        {
         Node del = new Node(this.getNode(index));
         this.getNode(index-1).setNext(this.getNode(index+1));
         return del;
+        }
     }
 
     @Override
     public boolean remove(Object element) {
         if(isEmpty())
             return false;
+        if(this.size() == 1)
+        {
+            this.makeEmpty();
+            return true;
+        }
         if(this.getNode(this.indexOf(element)) != null)
         {
-            this.getNode(this.indexOf(element)-1).setNext(this.getNode(this.indexOf(element)+1));
+            //this.getNode(this.indexOf(element)-1).setNext(this.getNode(this.indexOf(element)+1));
+            this.remove(this.indexOf(element));
             return true;
         }
         
