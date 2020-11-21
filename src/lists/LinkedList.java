@@ -148,19 +148,23 @@ public class LinkedList implements ListInterface {
     {
         if(isEmpty())
             throw new RuntimeException("list is empty!");
-        Node del = this.head;
-        for(int i=0;del != this.getTailNode();i++)
-        {
-            del.getNext();
-        }
-        del.setNext(null);
+        
+        this.getNode(this.size()-2).setNext(null);
+        
+        //this.getTailNode().equals(null);
+        //Node del = this.head;
+        //for(int i=0;i < this.size();i++)
+        //{
+        //    del.getNext();
+       // }
+       // del.setNext(null);
     }
     
     @Override
     public void remove() {
         if(isEmpty())
             throw new RuntimeException("list is empty");
-        this.head.equals(this.getNode(1));
+        this.head =(this.getNode(1));
     }
 
     //Course & Lab homework
@@ -178,7 +182,9 @@ public class LinkedList implements ListInterface {
         else
         {
         Node del = new Node(this.getNode(index));
+        //this.getNode(index).setNext(null);
         this.getNode(index-1).setNext(this.getNode(index+1));
+        
         return del;
         }
     }
