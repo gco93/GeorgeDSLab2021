@@ -51,6 +51,14 @@ public class TestLinkedList {
         mergedList.print();
         mergedList.removelast();
         mergedList.print();
+        mergedList.replace(1, "Nancy");
+        mergedList.print();
+        mergedList.insert(1,"Sirine");
+        mergedList.print();
+        mergedList.replaceAll("Nancy", "Sirine");
+        mergedList.print();
+        System.out.println(mergedList.contains("Mahdi"));
+
     }
 
 }

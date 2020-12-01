@@ -207,7 +207,44 @@ public class LinkedList implements ListInterface {
         
         return false;
     }
-
+    
+    public void replace (int index, Object newElement)
+    {
+        Node newnode = new Node(newElement);
+        LinkedList newll = new LinkedList(this.getNode(index +1));
+        this.getNode( index -1).setNext(newnode);
+        newnode.setNext(newll.getHeadNode());
+    }
+    public void insert (int index , Object newElement)
+    {
+        Node newnode = new Node(newElement);
+        LinkedList newll = new LinkedList(this.getNode(index));
+        this.getNode( index -1).setNext(newnode);
+        newnode.setNext(newll.getHeadNode());
+    }
+    public void replaceAll (Object existingElement, Object newElement)
+    {
+        this.replace(this.indexOf(existingElement), newElement);
+    }
+            
+    public boolean contains (Object element)
+    {
+        Node complist = this.head;
+        //if (this.head.getValue() == element)
+           // return true;
+        while (complist.getNext()!= null)
+        {
+            if( complist.getValue() == element)
+                return true;
+            
+            complist = complist.getNext();
+            
+        }
+            
+            return false;
+    }
+            
+            
     //TODO: test this function
     public static LinkedList merge(LinkedList list1, LinkedList list2) {
         //TODO: add logic here
