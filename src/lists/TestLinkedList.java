@@ -43,6 +43,7 @@ public class TestLinkedList {
         
         LinkedList mergedList = LinkedList.merge(myList, secondList);
         mergedList.print();
+        System.out.println(mergedList.getprevious("Khodor"));
         mergedList.remove(2);
         mergedList.print();
         mergedList.remove("Sirin");

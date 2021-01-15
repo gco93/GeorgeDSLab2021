@@ -121,6 +121,24 @@ public class LinkedList implements ListInterface {
 //        }
     }
 
+    public Object getprevious (Object element)
+    {
+        Node current= this.head;
+        if(current.equals(element))
+            return null;
+        while( current != null )
+        {
+            Node nxt = current.getNext();
+            if(nxt.getValue().equals(element))
+            {
+                return current.getValue();
+            }
+            current = current.getNext();
+        }
+        
+        return null;
+    }
+    
     @Override
     public Object get(int index) {
         return this.getNode(index).getValue();
@@ -280,8 +298,11 @@ public class LinkedList implements ListInterface {
         //second way
         LinkedList mergedList2 = list1;
         mergedList2.getTailNode().setNext(list2.head);
+        
 
-        return mergedList2; //or uncomment first way, comment second way, and return mergedList1 to test first way;
+        return mergedList2; 
+
+//or uncomment first way, comment second way, and return mergedList1 to test first way;
     }
 
     void print() {

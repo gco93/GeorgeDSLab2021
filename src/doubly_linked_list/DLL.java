@@ -93,6 +93,38 @@ public class DLL implements DLLInterface {
     public Object getTailValue() {
         return this.getTailNode().getValue();
     }
+    
+    public void addAll (DLL list2)
+    {
+        this.getTailNode().setNext(list2.getHeadNode());
+        list2.getHeadNode().setPrevious(this.getTailNode());
+        
+    }
+    public DLL intersect (DLL list1, DLL list2)
+    {
+        
+        DLL list3 = new DLL();
+        DLLNode currentNode1 = list1.getHeadNode();
+        while (currentNode1 != null)
+        {
+            DLLNode currentNode2 = list2.getHeadNode();
+            while (currentNode2 !=null)
+            {
+                if(currentNode1.getValue().equals(currentNode2.getValue()))
+                { 
+                    list3.insertAtBack(currentNode1.getValue());
+                    break;
+                }
+                else
+                    currentNode2 = currentNode2.getNext();
+            }
+            
+            currentNode1 = currentNode1.getNext();
+        }
+        
+        
+        return list3;
+    }
 
     //same implementation as SLL
     public DLLNode getNode(int index) {
